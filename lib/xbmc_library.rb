@@ -213,5 +213,10 @@ raise XBMCLibrary::UnauthorizedError, "Could not authorize with XBMC. Did you se
   def get_episode(id)
     return xbmc('VideoLibrary.GetEpisodeDetails', { :episodeid => id, :properties => ['tvshowid'] })
   end
+  
+  def show_home()
+    return xbmc('Input.Home')
+  end
+ 
 end
 
