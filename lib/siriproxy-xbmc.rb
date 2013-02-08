@@ -210,7 +210,20 @@ class SiriProxy::Plugin::XBMC < SiriProxy::Plugin
     request_completed #always complete your request! Otherwise the phone will "spin" at the user!
   end
 
+  # show_home_screen
+  listen_for /tv go home/i do 
+    if (@xbmc.connect(@active_room))
+      if @xbmc.show_home()
+        say "Showing the home screen...", spoken: "Here's your home screen"
+      else
+        say "Couldn't show the home screen"
+      end
+    end
+    request_completed #always complete your request! Otherwise the phone will "spin" at the user!
+  end
+
   # show_movies
+  #TODO
   listen_for /tv go home/i do 
     if (@xbmc.connect(@active_room))
       if @xbmc.show_home()
